@@ -6,5 +6,5 @@ Click between Page A and Page B and note that it needs to load the users each ti
 
 Stop the backend, and start with `yarn start:caching`. 
 
-Now note that the load is not longer required when you click between. 
+Now note that there is no longer a load when clicking between pages. 
 
