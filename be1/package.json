@@ -14,6 +14,7 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
-    "start": "nodemon src/server.ts"
+    "start": "nodemon src/server.ts", 
+    "start:caching": "USE_CACHE_HEADERS=true nodemon src/server.ts"
   }
 }

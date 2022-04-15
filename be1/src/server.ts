@@ -3,6 +3,9 @@ import express from "express";
 const app = express();
 const port = process.env.PORT || 4000;
 
+
+const USE_CACHE_HEADERS = process.env.USE_CACHE_HEADERS || false;
+
 app.use(express.json());
 
 
@@ -23,10 +26,18 @@ const db = [{
 
 app.get("/users", (req, res) => {
     setTimeout(() => {
+
+        if (USE_CACHE_HEADERS) {
+            res.setHeader("Cache-Control", "max-age=60"); 
+        }
+
         res.status(200).send(db);
     }, 1000);
 
-    return; 
+
+
+
+    return;
 });
 
 

@@ -1,4 +1,5 @@
 
+import { listenerCount } from 'process';
 import React, { useEffect, useState } from 'react';
 import { fetchUsers, User } from '../services/UserService';
 
@@ -15,24 +16,20 @@ export const PageA = (props: PageAProps) => {
 
 
     useEffect(() => {
-
-        console.log("got here");
         fetchUsers().then((v) => {
-            console.log(v);
             setUsers(v);
         });
-    }, [setUsers])
+    }, [])
 
     return (
         <div>
             <h1>Page A</h1>
 
-            {users ? users.map((v) => {
-                return <ul>
+            {users ? <ul>{ users.map((v) => {
 
-                    <li>{v.id} - {v.name}</li>
-                </ul>
-            }) : "Loading..."}
+               return <li key = {v.id}>{v.id} - {v.name}</li>
+                
+            })}</ul> : "Loading..."}
 
         </div>
     );

@@ -14,13 +14,10 @@ export const PageB = (props: PageBProps) => {
 
 
     useEffect(() => {
-
-        console.log("got here");
         fetchUsers().then((v) => {
-            console.log(v);
             setUsers(v);
         });
-    }, [setUsers])
+    }, [])
 
     return (
         <div>
